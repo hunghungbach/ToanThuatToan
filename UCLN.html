@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm Ước Chung Lớn Nhất (UCLN)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #89CFF0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #3acbf5;
+        }
+    </style>
+    <script>
+        function findGCD(a, b) {
+            while (b != 0) {
+                var temp = b;
+                b = a % b;
+                a = temp;
+            }
+            return a;
+        }
+        function calculateGCD() {
+            var a = parseInt(document.getElementById("numberA").value);
+            var b = parseInt(document.getElementById("numberB").value);
+            if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập hai số nguyên dương hợp lệ!";
+                return;
+            }
+            var gcd = findGCD(a, b);
+            document.getElementById("result").innerHTML = "Ước chung lớn nhất của " + a + " và " + b + " là: " + gcd;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tìm Ước Chung Lớn Nhất (UCLN)</h1>
+    <label for="numberA">Nhập số a: </label>
+    <input type="number" id="numberA" placeholder="Nhập số a">
+    <br><br>
+    <label for="numberB">Nhập số b: </label>
+    <input type="number" id="numberB" placeholder="Nhập số b">
+    <br><br>
+    <button onclick="calculateGCD()">Tìm UCLN</button>
+    <div id="result"></div>
+</body>
+</html>

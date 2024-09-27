@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Tổng Số Chẵn Từ 1 Đến n</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color: #89CFF0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #3acbf5;
+        }
+    </style>
+    <script>
+        function calculateEvenSum() {
+            var n = document.getElementById("number").value;
+            n = parseInt(n);
+            if (isNaN(n) || n <= 0) {
+                document.getElementById("result").innerHTML = "Vui lòng nhập số nguyên dương hợp lệ!";
+                return;
+            }
+            var sum = 0;
+            for (var i = 2; i <= n; i += 2) {
+                sum += i;
+            }
+            document.getElementById("result").innerHTML = "Tổng các số chẵn từ 1 đến " + n + " là: " + sum;
+        }
+    </script>
+</head>
+<body>
+    <h1>Tính Tổng Số Chẵn Từ 1 Đến n</h1>
+    <label for="number">Nhập số n: </label>
+    <input type="number" id="number" placeholder="Nhập n">
+    <br>
+    <button onclick="calculateEvenSum()">Tính Tổng</button>
+    <div id="result"></div>
+    
+</body>
+</html>
